@@ -1,0 +1,57 @@
+<div tuiCardLarge tuiSurface="elevated">
+  <tui-combo-box tuiDropdownMobile [formControl]="active">
+    Country
+    <tui-data-list-wrapper
+      *tuiDataList
+      [items]="activeFilter | tuiFilterByInput"
+    ></tui-data-list-wrapper>
+  </tui-combo-box>
+
+  <tui-input
+    [formControl]="name"
+    tuiTextfieldSize="m"
+    [tuiTextfieldCleaner]="true"
+    [tuiTextfieldLabelOutside]="true"
+  >
+    Type name
+    <input autocomplete="name" tuiTextfield type="text" />
+  </tui-input>
+
+  <tui-loader [overlay]="true" [showLoader]="!!(loading$ | async)">
+    <table
+      *ngIf="data$ | async as data"
+      tuiTable
+      class="table"
+      [columns]="columns"
+      [direction]="(direction$ | async) || 1"
+      [tuiSortBy]="sorter$ | async"
+      (directionChange)="direction$.next($event)"
+      (tuiSortByChange)="sorter$.next($event!)"
+    >
+      <thead>
+        <tr tuiThGroup>
+          <th *tuiHead="'id'" tuiSortable tuiTh>ID</th>
+          <th *tuiHead="'name'" tuiSortable tuiTh>Name</th>
+          <th *tuiHead="'email'" tuiSortable tuiTh>Email</th>
+          <th *tuiHead="'active'" tuiSortable tuiTh>Active</th>
+        </tr>
+      </thead>
+      <tbody *tuiLet="data | tuiTableSort as sortedUsers" tuiTbody [data]="sortedUsers">
+        <tr *ngFor="let user of sortedUsers" tuiTr (click)="showDialog(user)">
+          <td *tuiCell="'id'" tuiTd>
+            {{ user.id }}
+          </td>
+          <td *tuiCell="'name'" tuiTd>
+            {{ user.name }}
+          </td>
+          <td *tuiCell="'email'" tuiTd>
+            {{ user.email }}
+          </td>
+          <td *tuiCell="'active'" tuiTd>
+            {{ user.active }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </tui-loader>
+</div>

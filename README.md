@@ -1,27 +1,145 @@
 # NaumenJunTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
+Проект на Angular 18, использующий современный стек технологий для разработки интерфейса и тестирования. Включены компоненты Taiga UI и локальный сервер для эмуляции API на основе json-server.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Оглавление
 
-## Code scaffolding
+- [Обзор](#обзор)
+- [Требования](#требования)
+- [Установка](#установка)
+- [Доступные скрипты](#доступные-скрипты)
+- [Локальный сервер данных](#локальный-сервер-данных)
+- [Тестирование](#тестирование)
+- [Линтинг и форматирование](#линтинг-и-форматирование)
+- [Используемые технологии](#используемые-технологии)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Обзор
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Данный проект был создан с помощью Angular CLI версии 18.2.20. Включает интеграцию с UI-библиотекой Taiga UI и используется json-server для имитации REST API.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Требования
 
-## Running end-to-end tests
+- Node.js (рекомендуется LTS версия)
+- npm или yarn
+- Angular CLI (совместимая версия 18.x)
+- Браузер для запуска приложения (рекомендуется Chrome или Firefox)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Установка
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Клонируйте репозиторий:
+
+   ```bash
+   git clone <репозиторий>
+   cd naumen-jun-task
+   ```
+   
+2. Клонируйте репозиторий:
+   ```bash
+   npm install
+   ```
+
+---
+
+## Доступные скрипты
+
+Данный проект был создан с помощью Angular CLI версии 18.2.20. Включает интеграцию с UI-библиотекой Taiga UI и используется json-server для имитации REST API.
+
+- `npm start` — Запускает dev-сервер Angular на `http://localhost:4200/` с автообновлением при изменениях в коде.
+
+- `npm run build` — Собирает проект для продакшена, артефакты появляются в папке dist/.
+
+- `npm run watch` — Запускает сборку с режимом наблюдения, пересобирает проект при изменениях.
+
+- `npm run start:json-server` — Запускает локальный json-server для имитации REST API на http://localhost:3000/, используя файл db.json.
+
+- `npm test` — Запускает юнит-тесты через Karma.
+
+- `npm run lint` — Проверяет проект на соответствие правилам ESLint и Stylelint.
+
+- `npm run lint:fix` — Автоматически исправляет ошибки форматирования и стиля кода.
+
+- `npm run format` — Форматирует весь исходный код согласно Prettier.
+
+---
+
+## Локальный сервер данных
+
+Для удобного тестирования и разработки предусмотрен json-server:
+
+   ```bash
+   npm run start:json-server
+   ```
+
+- Сервер поднимается на порту 3000.
+
+- Источник данных — файл db.json в корне проекта.
+
+- Используйте этот сервер для мокапа API и тестирования запросов.
+
+---
+
+## Тестирование
+
+Юнит-тесты выполняются командой:
+
+   ```bash
+   npm test
+   ```
+
+- Используется Karma + Jasmine.
+
+- Конфигурация покрывает проверку компонентов, сервисов и других логик Angular.
+
+---
+
+## Линтинг и форматирование
+
+- Линтинг TypeScript и Angular кода — ESLint.
+
+- Линтинг стилей (CSS/SCSS) — Stylelint с конфигурациями для SCSS.
+
+- Форматирование — Prettier.
+
+Запуск линтера:
+
+   ```bash
+   npm run lint
+   ```
+
+Автоисправление:
+
+   ```bash
+   npm run lint:fix
+   ```
+
+Форматирование кода:
+
+   ```bash
+   npm run format
+   ```
+
+---
+
+## Используемые технологии
+
+- Angular 18 — фронтенд-фреймворк.
+
+- Taiga UI 3.117.0 — современная UI библиотека с множеством компонентов.
+
+- json-server — локальный REST API сервер для мокапа данных.
+
+- RxJS 7.8 — реактивное программирование.
+
+- TypeScript 5.5 — статическая типизация.
+
+- ESLint / Stylelint / Prettier — инструменты контроля качества кода.
+
+- Karma + Jasmine — фреймворки для юнит-тестирования.

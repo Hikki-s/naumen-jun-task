@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start:json-server": "json-server --watch db.json --port 3000",
+    "test": "ng test",
+    "lint": "ng lint && stylelint \"src/**/*.{css,scss}\"",
+    "lint:fix": "ng lint --fix && stylelint \"src/**/*.{css,scss}\" --fix",
+    "format": "prettier --write \"src/**/*.{ts,html,scss,css,json,md}\""
   },
   "private": true,
   "dependencies": {
@@ -28,6 +32,7 @@
     "@taiga-ui/addon-tablebars": "^3.117.0",
     "@taiga-ui/cdk": "^3.117.0",
     "@taiga-ui/core": "^3.117.0",
+    "@taiga-ui/experimental": "^3.117.0",
     "@taiga-ui/icons": "^3.117.0",
     "@taiga-ui/kit": "^3.117.0",
     "@taiga-ui/layout": "^3.117.0",
@@ -43,12 +48,22 @@
     "@angular/compiler-cli": "^18.2.0",
     "@types/dompurify": "3.0.5",
     "@types/jasmine": "~5.1.0",
+    "angular-eslint": "20.1.1",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "jasmine-core": "~5.2.0",
+    "json-server": "^1.0.0-beta.3",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.5.2"
+    "prettier": "^3.6.2",
+    "stylelint": "^16.23.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.34.1"
   }
 }
